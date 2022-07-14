@@ -1,6 +1,7 @@
 <template>
 <div>
-
+  <!-- //Metto HeaderComp -->
+  <HeaderComp />
     <div class="container mt-5">   
       <h1>Hello, Api!</h1>
 
@@ -24,9 +25,14 @@
 
 // importo HeaderComp
 
+import HeaderComp from 'resources/js/components/partials/HeaderComp';
 
 export default {
  name: 'App',
+//  non devi dimenticare di indicare i componenti di cui contiene questo Vue
+ components:{
+  HeaderComp
+ },
 
  data(){
   return{

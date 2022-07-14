@@ -34,11 +34,20 @@ Route::middleware('auth')
     });
     // ->get('/admin', 'HomeController@index')->name('admin');
 
+    // ============================================================
 
-  //dobbiamo cancellare
-  Route::get('/', function () {
+    // devo connrollare che tutte queste ruote atternano al front -> guest.home
+
+    Route::get('{any?}', function(){
       return view('guest.home');
-  });
+    })->where('any', '.*')->name('home');
 
+
+  // //dobbiamo cancellare
+  // Route::get('/', function () {
+  //     return view('guest.home');
+  // });
+
+  // -----------------------------------
 
 
