@@ -56,6 +56,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+ main{
+  min-height:calc(100vh - 140px);
+  padding: 50px 0;
+ }
 </style>

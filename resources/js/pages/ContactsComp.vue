@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="container card p-3">
   CONTACTS
 </div>
   
@@ -12,5 +12,7 @@ export default {
 </script>
 
 <style lang="scss" scoped> 
-
+div{
+  min-height:calc(100vh - 240px)
+}
 </style>
