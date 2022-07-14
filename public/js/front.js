@@ -2291,7 +2291,19 @@ var render = function render() {
         return _vm.getApi(_vm.paginate.currentpage - 1);
       }
     }
-  }, [_vm._v("<")]), _vm._v(" "), _c("button", {
+  }, [_vm._v("<")]), _vm._v(" "), _vm._l(_vm.paginate.lastpage, function (num) {
+    return _c("button", {
+      key: num,
+      attrs: {
+        disabled: _vm.paginate.currentpage === num
+      },
+      on: {
+        click: function click($event) {
+          return _vm.getApi(num);
+        }
+      }
+    }, [_vm._v("\r\n      " + _vm._s(num) + "\r\n       \r\n      ")]);
+  }), _vm._v(" "), _c("button", {
     attrs: {
       disabled: _vm.paginate.currentpage === _vm.paginate.lastpage
     },
@@ -2300,7 +2312,7 @@ var render = function render() {
         return _vm.getApi(_vm.paginate.currentpage + 1);
       }
     }
-  }, [_vm._v(">")])])]);
+  }, [_vm._v(">")])], 2)]);
 };
 
 var staticRenderFns = [];
@@ -2449,7 +2461,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".k_buttons[data-v-5bf3284c] {\n  text-align: center;\n}\n.k_buttons button[data-v-5bf3284c] {\n  padding: 8px 15px;\n  margin: 15px;\n}", ""]);
+exports.push([module.i, ".k_buttons[data-v-5bf3284c] {\n  text-align: center;\n}\n.k_buttons button[data-v-5bf3284c] {\n  padding: 8px 15px;\n  margin: 4px;\n}", ""]);
 
 // exports
 

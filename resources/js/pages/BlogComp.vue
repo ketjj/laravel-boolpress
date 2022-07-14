@@ -17,7 +17,16 @@
        quindi il codice getApi(paginate.currentpage - 1) sarà attuale dopo la pagina 1 -->
       <button @click="getApi(paginate.currentpage -1)"
       :disabled="paginate.currentpage === 1"><</button>
-   
+
+      <button v-for="num in paginate.lastpage"
+      :key="num"
+      @click="getApi(num)"
+      :disabled="paginate.currentpage === num"
+      >
+      {{num}}
+       
+      </button>
+       
 
        <!-- il bottone avanti, che si ferma all'ultima pagina e diventa sisabled, quando la pagina sarà uguale all'ultima paginaate.lastpage -->
       <button @click="getApi(paginate.currentpage +1)"
@@ -72,7 +81,7 @@ export default {
   text-align: center;
   button{
     padding: 8px 15px;
-    margin: 15px;
+    margin: 4px;
   }
 
 }
