@@ -10,10 +10,12 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 //6. import Route Pages-Comps here!
-import HomeComp from 'resources/js/pages/HomeComp';
-import AboutComp from 'resources/js/pages/AboutComp';
-import ContactsComp from 'resources/js/pages/ContactsComp';
-import BlogComp from 'resources/js/pages/BlogComp';
+// P.S ho passato 2 ore per capire non il percoso che mi suggeriva ==> import HomeComp from 'resources/js/pages/HomeComp' <=== mi dava errore  npm run dev 
+
+import HomeComp from './pages/HomeComp';
+import AboutComp from './pages/AboutComp';
+import ContactsComp from './pages/ContactsComp';
+import BlogComp from './pages/BlogComp';
 
 
 //4. Dobbiamo creare una nuova instanza del VueRouter e come il parametro lo passeremo un oggetone

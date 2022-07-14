@@ -1,22 +1,18 @@
 <template>
 <div>
   <!-- //Metto HeaderComp -->
-  <HeaderComp />
-    <div class="container mt-5">   
-      <h1>Hello, Api!</h1>
+  <HeaderComp/>
+    
 
-      <h5>Here are all the posts!</h5>
+    <main>
+      <!-- qua creo un blocco di codice,quale dopo viene riempito con RouteComps 
+      attraverso 
+      route-link -->
+      
+      <router-view></router-view>
+    </main>
 
-        <div 
-        v-for="post in posts"
-        :key="post.id" class="my-4">  
-
-        <h3>{{ post.title}}</h3>
-        <div>{{ post.content }}</div>
-        </div>
-
-    </div>
-
+    <FooterComp/>
 </div>
   
 </template>
@@ -24,14 +20,17 @@
 <script>
 
 // importo HeaderComp
+//Stesso errore del percorso suggerito da VSC, lo devi scrivere senza: resourcess/js/
 
-import HeaderComp from 'resources/js/components/partials/HeaderComp';
+import HeaderComp from './components/partials/HeaderComp.vue';
+import FooterComp from './components/partials/FooterComp.vue';
 
 export default {
  name: 'App',
 //  non devi dimenticare di indicare i componenti di cui contiene questo Vue
  components:{
-  HeaderComp
+  HeaderComp,
+  FooterComp
  },
 
  data(){

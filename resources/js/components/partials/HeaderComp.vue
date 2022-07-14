@@ -2,10 +2,11 @@
 <header>
   <nav>
     <ul>
-      <li>Home</li>
-      <li>Home</li>
-      <li>Home</li>
-      <li>Home</li>
+      <li class="list-unstyled"><router-link :to="{name: 'home'}">Home</router-link></li>
+      <li class="list-unstyled"><router-link :to="{name: 'about'}">Chi siamo</router-link></li>
+      <li class="list-unstyled"><router-link :to="{name: 'blog'}">Posti</router-link></li>
+      <li class="list-unstyled"><router-link :to="{name: 'contacts'}">Contatti</router-link></li>
+
     </ul>
   </nav>
 </header>
@@ -15,7 +16,7 @@
 <script>
 export default {
   // non devi dimenticare di indicare il nome del Vue attuale
-  name: 'Header'
+  name: 'HeaderComp'
 
 }
 </script>
