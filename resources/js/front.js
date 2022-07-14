@@ -8,5 +8,7 @@ import App from './App.vue';
 
 const app = new Vue({
     el: '#app',
+    //impostiamo qua il router
+    router,
     render: h => h(App)
 });
