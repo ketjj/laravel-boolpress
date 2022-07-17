@@ -2004,6 +2004,11 @@ __webpack_require__.r(__webpack_exports__);
   name: 'PostComp',
   props: {
     post: Object
+  },
+  computed: {
+    shortContent: function shortContent() {
+      return this.post.content.substr(0, 20);
+    }
   }
 });
 
@@ -2270,7 +2275,7 @@ var render = function render() {
 
   return _c("div", [_c("h4", {
     staticClass: "mt-4"
-  }, [_vm._v(_vm._s(_vm.post.title))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.post.content))]), _vm._v(" "), _c("div", [_vm._v("-" + _vm._s(_vm.post.author))])]);
+  }, [_vm._v(_vm._s(_vm.post.title))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.shortContent) + "\r\n      ")]), _vm._v(" "), _c("div", [_vm._v("-" + _vm._s(_vm.post.author))])]);
 };
 
 var staticRenderFns = [];

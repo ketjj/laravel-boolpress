@@ -17,4 +17,10 @@ class PageController extends Controller
         //perchè Post? --> l'unico Model che ha le relazoni con il Category e il Tag
         return response()->json($posts);
     }
+
+    public function show($slug){
+        $post = Post::where('slug', $slug)->with(['category', 'tags'])->first();
+
+        return response()->json($post);
+    }
 }
