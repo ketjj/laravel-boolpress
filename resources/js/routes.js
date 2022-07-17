@@ -16,6 +16,7 @@ import HomeComp from './pages/HomeComp';
 import AboutComp from './pages/AboutComp';
 import ContactsComp from './pages/ContactsComp';
 import BlogComp from './pages/BlogComp';
+import PostInfo from './pages/PostInfo.vue'
 
 
 //4. Dobbiamo creare una nuova instanza del VueRouter e come il parametro lo passeremo un oggetone
@@ -44,6 +45,11 @@ const router = new VueRouter({
       path: '/posti',
       name: 'blog',
       component: BlogComp
+    },
+    {
+      path: '/postinfo/:slug',
+      name: 'postinfo',
+      component: PostInfo
     }
   ]
 })

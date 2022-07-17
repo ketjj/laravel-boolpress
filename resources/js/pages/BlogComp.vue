@@ -68,7 +68,7 @@ export default {
 
   methods: {
     getApi(page){
-      //qua metto posts=null, altrinemti v-if/v-else avrebbe funzionato soltanto al caricamento dei post, non ogni cambiamento(chiamate Api) delle pagine. Quindi, lo resetto
+      //qua metto posts=null, altrinemti v-if/v-else avrebbe funzionato soltanto al caricamento dei post, non ogni cambiamento(chiamate Api) delle pagine. Quindi, lo ressetto
       this.posts = null;
       axios.get(this.apiUrl + '?page=' + page)
       .then(res => {
