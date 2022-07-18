@@ -1,7 +1,16 @@
 <template>
 <div class="container card p-3">
-  <h3>{{post.title}}</h3>
+
+  <div class="mb-4">
+    <span class="h3 mr-3">{{post.title}}</span>
+    <span class="badge badge-primary" v-for="tag in post.tags"
+    :key="tag.id">
+      {{tag.name}}
+    </span>
+  </div>
+
   <div>{{post.content}}</div>
+  <div>Categoria: {{post.category.name}}</div>
   <div>Author: -{{post.author}}</div>
   <div>Created at: {{post.created_at}}</div>
   
@@ -16,7 +25,9 @@ export default {
     return{
       post: {
         title: '',
-        content: ''
+        content: '',
+        category: '',
+        tags:[]
       },
       apiUrl: '/api/posts/'
     }
