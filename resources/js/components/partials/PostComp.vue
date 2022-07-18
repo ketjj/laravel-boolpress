@@ -7,7 +7,7 @@
     <p>{{shortContent}}
       <!-- <a href="#"> load more...</a> -->
     </p>
-    <div>-{{post.author}}</div>
+    <div class="mb-4">-{{post.author}}</div>
   </div>
   
 </template>

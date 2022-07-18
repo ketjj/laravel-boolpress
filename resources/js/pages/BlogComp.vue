@@ -1,7 +1,7 @@
 <template>
 <div>
-  <div class="container card p-3">
-    <h3 class="my-5 text-uppercase">Tutti i Post</h3>
+    <h3 class="k_container p-3 text-uppercase">Tutti i Post</h3>
+  <div class="k_container p-3 d-flex ">
 
      <LoaderComp v-if="!posts"/>
 
@@ -12,7 +12,17 @@
       :post="post"
       />
 
-    <div class="k_buttons container">
+    
+    </div>
+
+  <!-- SIDEBAR -->
+    <div class="side_bar">
+      <SidebarComp 
+      :categories="categories"
+      :tags="tags"/>
+    </div>
+  </div>
+  <div class="k_buttons text-center">
        <!-- il bottone iniziale che all'inizio con :disabled rimane non cliccabile
        quindi il codice getApi(paginate.currentpage - 1) sarà attuale dopo la pagina 1 -->
       <button @click="getApi(paginate.currentpage -1)"
@@ -32,11 +42,10 @@
       <button @click="getApi(paginate.currentpage +1)"
       :disabled="paginate.currentpage === paginate.lastpage">></button>
 
-    </div>
-    </div>
-
   </div>
 </div>
+
+
   
 </template>
 
@@ -44,12 +53,14 @@
 
 import PostComp from '../components/partials/PostComp.vue'
 import LoaderComp from '../components/partials/LoaderComp.vue'
+import SidebarComp from '../components/partials/SidebarComp.vue'
 
 export default {
   name: 'blog',
   components:{
     PostComp,
-    LoaderComp
+    LoaderComp,
+    SidebarComp
   },
   data(){
     return{
@@ -58,7 +69,9 @@ export default {
       paginate:{
         currentpage: null,
         lastpage: null
-      }
+      },
+      categories: [],
+      tags: [],
     }
   },
 
@@ -72,11 +85,14 @@ export default {
       this.posts = null;
       axios.get(this.apiUrl + '?page=' + page)
       .then(res => {
-        this.posts = res.data.data;
+        this.posts = res.data.posts.data;
         this.paginate = {
-          currentpage: res.data.current_page,
-          lastpage: res.data.last_page
-        }
+          currentpage: res.data.posts.current_page,
+          lastpage: res.data.posts.last_page
+        },
+
+        this.categories = res.data.categories;
+        this.tags = res.data.tags;
       })
     }
   }
@@ -84,6 +100,14 @@ export default {
 </script>
 
 <style lang="scss" scoped> 
+.k_container{
+  width: 74%;
+  margin: 0 auto;
+
+  background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
 .k_buttons{
   text-align: center;
   button{
@@ -92,4 +116,10 @@ export default {
   }
 
 }
+ .side_bar{
+  width:100%;
+  flex-basis: 50%;
+  padding: 0 30px;
+ }
+
 </style>
